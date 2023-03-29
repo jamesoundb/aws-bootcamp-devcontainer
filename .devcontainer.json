@@ -6,7 +6,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
 
-  "forwardPorts": [3000, 4567, 2000],
+  "forwardPorts": [3000, 4567, 2000, 5432, 8000],
 
   "portsAttributes": {
     "3000": {
@@ -20,6 +20,14 @@
     "2000": {
       "label": "AWS X-Ray Daemon",
       "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "Postgres",
+      "onAutoForward": "notify"
+    },
+    "8000": {
+      "label": "Dynamodb",
+      "onAutoForward": "notify"
     }
   },
 
@@ -32,7 +40,8 @@
           "hashicorp.terraform",
           "redhat.ansible",
           "redhat.vscode-yaml",
-          "amazonwebservices.aws-toolkit-vscode"
+          "amazonwebservices.aws-toolkit-vscode",
+          "cweijan.vscode-postgresql-client2"
       ]
     }
   },     
@@ -70,7 +79,8 @@
   "postAttachCommand": {
     "npm-prep": "cd /workspaces/aws-bootcamp-cruddur-2023/frontend-react-js && npm install",
     "pip-prep": "cd /workspaces/aws-bootcamp-cruddur-2023/backend-flask && pip install -r requirements.txt",
-    "ip-update": "export LOCAL_IP=$(curl -s ifconfig.me) && /workspaces/aws-bootcamp-cruddur-2023/backend-flask/bin/rds-update-sg-rule-local"
+    "ip-update": "export LOCAL_IP=$(curl -s ifconfig.me) && /workspaces/aws-bootcamp-cruddur-2023/backend-flask/bin/rds/update-sg-rule-local"
   }
 }
+
 
