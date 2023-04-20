@@ -63,6 +63,7 @@
     "AWS_DEFAULT_REGION":               "${localEnv:AWS_DEFAULT_REGION}",
     "AWS_SECRET_ACCESS_KEY":            "${localEnv:AWS_SECRET_ACCESS_KEY}",
     "AWS_COGNITO_USER_POOL_ID":         "${localEnv:AWS_COGNITO_USER_POOL_ID}",
+    "AWS_COGNITO_USER_POOL_CLIENT_ID":  "${localEnv:AWS_COGNITO_USER_POOL_CLIENT_ID}",
     "DOCKER_USERNAME":                  "${localEnv:DOCKER_USERNAME}",
     "DOCKER_PASSWORD":                  "${localEnv:DOCKER_PASSWORD}",
     "HONEYCOMB_API_KEY":                "${localEnv:HONEYCOMB_API_KEY}",
@@ -70,21 +71,25 @@
     "ROLLBAR_ACCESS_TOKEN":             "${localEnv:ROLLBAR_ACCESS_TOKEN}",
     "CONNECTION_URL":                   "${localEnv:CONNECTION_URL}",    
     "PROD_CONNECTION_URL":              "${localEnv:PROD_CONNECTION_URL}",
+    "ALB_SG_ID":                        "${localEnv:ALB_SG_ID}",
+    "ALB_SG_RULE_ID_1":                 "${localEnv:ALB_SG_RULE_ID_1}",
+    "ALB_SG_RULE_ID_2":                 "${localEnv:ALB_SG_RULE_ID_2}",
     "DB_SG_ID":                         "${localEnv:DB_SG_ID}",
     "DB_SG_RULE_ID":                    "${localEnv:DB_SG_RULE_ID}",
     "RDS_INSTANCE":                     "${localEnv:RDS_INSTANCE}",
     "AWS_XRAY_URL":                     "${localEnv:AWS_XRAY_URL}",
-    "AWS_XRAY_DAEMON_ADDRESS":          "${localEnv:AWS_XRAY_DAEMON_ADDRESS}"
+    "AWS_XRAY_DAEMON_ADDRESS":          "${localEnv:AWS_XRAY_DAEMON_ADDRESS}",
+    "LOCAL_IP":                         "${localEnv:LOCAL_IP}",
+    "DATE":                             "${localEnv:DATE}"
   },
   
   "remoteUser": "jamesoundb",
 
   "postAttachCommand": {
-    "npm-prep": "cd /workspaces/aws-bootcamp-cruddur-2023/frontend-react-js && npm install",
-    "pip-prep": "cd /workspaces/aws-bootcamp-cruddur-2023/backend-flask && pip install -r requirements.txt",
-    "ip-update": "export LOCAL_IP=$(curl -s ifconfig.me) && /workspaces/aws-bootcamp-cruddur-2023/bin/rds/update-sg-rule-local",
-    "install-session-manager-plugin": "curl 'https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb' -o 'session-manager-plugin.deb' && sudo dpkg -i session-manager-plugin.deb",
-    "generate-env": "/workspaces/aws-bootcamp-cruddur-2023/bin/backend/generate-env-local && /workspaces/aws-bootcamp-cruddur-2023/bin/frontend/generate-env-local"
+    "Npm-Install": "cd /workspaces/aws-bootcamp-cruddur-2023/frontend-react-js && npm install",
+    "Pip-Reqs": "cd /workspaces/aws-bootcamp-cruddur-2023/backend-flask && pip install -r requirements.txt",
+    "SG Rules Updated": "/workspaces/aws-bootcamp-cruddur-2023/bin/rds/update-sg-rule-local && /workspaces/aws-bootcamp-cruddur-2023/bin/alb/update-sg-rule",
+    "Install-Session-Manager-Plugin": "curl 'https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb' -o 'session-manager-plugin.deb' && sudo dpkg -i session-manager-plugin.deb",
+    "Generate-Env": "/workspaces/aws-bootcamp-cruddur-2023/bin/backend/generate-env-local && /workspaces/aws-bootcamp-cruddur-2023/bin/frontend/generate-env-local"
   }
 }
-
