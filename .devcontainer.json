@@ -42,19 +42,18 @@
           "redhat.vscode-yaml",
           "amazonwebservices.aws-toolkit-vscode",
           "cweijan.vscode-postgresql-client2"
-      ]
+      ],
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/usr/bin/bash",
+            "icon": "terminal-bash"
+          }
+        }
+      }
     }
   },     
   
-  "settings": {
-		"terminal.integrated.profiles.linux": {
-			"bash": {
-				"path": "/usr/bin/bash",
-				"icon": "terminal-bash"
-			}
-		},
-		"terminal.integrated.defaultProfile.linux": "bash"
-	},	
   
   "containerEnv": {
     "AWS_CLI_AUTO_PROMPT":              "${localEnv:AWS_CLI_AUTO_PROMPT}",
@@ -92,5 +91,8 @@
     "SG Rules Updated": "/workspaces/aws-bootcamp-cruddur-2023/bin/rds/update-sg-rule-local && /workspaces/aws-bootcamp-cruddur-2023/bin/alb/update-sg-rule",
     "Install-Session-Manager-Plugin": "curl 'https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb' -o 'session-manager-plugin.deb' && sudo dpkg -i session-manager-plugin.deb",
     "Generate-Env": "/workspaces/aws-bootcamp-cruddur-2023/bin/backend/generate-env-local && /workspaces/aws-bootcamp-cruddur-2023/bin/frontend/generate-env-local",
-    "ECR-Login": "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin \"$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\""
+    "ECR-Login": "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin \"$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"",
+    "NPM Install": "cd /workspaces/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk && cp .env.example .env && npm i",
+    "Install AWS CDK": "sudo npm install aws-cdk -g"
   }
+}
