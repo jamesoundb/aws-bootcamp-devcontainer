@@ -79,7 +79,8 @@
     "AWS_XRAY_URL":                     "${localEnv:AWS_XRAY_URL}",
     "AWS_XRAY_DAEMON_ADDRESS":          "${localEnv:AWS_XRAY_DAEMON_ADDRESS}",
     "LOCAL_IP":                         "${localEnv:LOCAL_IP}",
-    "DATE":                             "${localEnv:DATE}"
+    "DATE":                             "${localEnv:DATE}",
+    "DOMAIN_NAME":                      "${localEnv:DOMAIN_NAME}"
   },
   
   "remoteUser": "jamesoundb",
