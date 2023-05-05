@@ -44,7 +44,7 @@ ENV LANG=en_US.UTF-8
 
 # Install NodeJS
 RUN cd /tmp \
-    && curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash \    
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash \    
     && apt install -y nodejs \
     && npm install -g npm@latest
 
