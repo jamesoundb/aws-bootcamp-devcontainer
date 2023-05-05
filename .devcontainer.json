@@ -93,6 +93,7 @@
     "Generate-Env": "/workspaces/aws-bootcamp-cruddur-2023/bin/backend/generate-env-local && /workspaces/aws-bootcamp-cruddur-2023/bin/frontend/generate-env-local",
     "ECR-Login": "aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin \"$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"",
     "Copy .env.example": "cd /workspaces/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk && cp .env.example .env",
-    "Install AWS CDK": "cd /workspaces/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk && npm i && sudo npm install aws-cdk -g"
+    "Install NPM in Thumbing": "cd /workspaces/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk && sudo npm install ",
+    "Install AWS CDK": "cd /workspaces/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk && sudo npm install aws-cdk -g"
   }
 }
